@@ -3,7 +3,6 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 // const { MongoClient } = require('mongodb');
 const mongoose = require('mongoose');
-const routes = require('./routes/routes');
 const app = express();
 require('dotenv').load();
 
@@ -19,7 +18,15 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 // Routes
+const routes = require('./routes/routes');
+const authRoutes = require('./routes/auth');
 app.use('/', routes);
+app.use('/users', authRoutes);
+
+// http://localhost:3002/api/hello
+// app.get('/api/hello', (req, res) => {
+//   res.send({ express: 'Hello From Express' });
+// });
 
 
 // Run server and start database connection
