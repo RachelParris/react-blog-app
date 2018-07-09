@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import SignUp from './components/SignUp';
+import {} from 'react-router-dom';
+import SignUp from './components/signup/SignUp';
+import Login from './components/login/Login';
 // import logo from './logo.svg';
 // import './App.css';
 
