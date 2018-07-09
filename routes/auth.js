@@ -15,7 +15,8 @@ router.post('/signup', (req, res, next) => {
 
   user.save((err) => {
     if (err) {
-        res.status(409).json({ err: "Not able to save user info to database." });
+        res.status(409).json({ err: err.message});
+        return;
     }
     res.status(200).json({ msg: "User info successfully saved to database!" });
   });
