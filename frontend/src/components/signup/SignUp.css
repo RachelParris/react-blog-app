@@ -1,0 +1,68 @@
+:root {
+  --bg: #FAFBFD;
+  --border: #d3d3d3;
+  --color: #544;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.parent-div {
+  border: 1px solid var(--border);
+  background-color: #fff;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  width: 85em;
+}
+
+.signup-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  width: 300px;
+}
+
+.signup-options-btn {
+  background-color:rebeccapurple;
+  color:white;
+  border: none;
+  outline: none;
+  width: 135px;
+  margin: 20px;
+  padding: 10px 20px;
+}
+
+.btn {
+  background-color:rebeccapurple;
+  color:white;
+  border: none;
+  outline: none;
+  width: 135px;
+  margin: 20px;
+  padding: 10px 20px;
+}
+
+.form {
+  display: flex;
+  flex-flow: column wrap;
+  color: var(--color);
+  margin-top: 15px;
+}
+
+input {
+  display: block;
+  border: 1px solid var(--border);
+  margin-bottom: 12px;
+}

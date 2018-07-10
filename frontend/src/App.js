@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {} from 'react-router-dom';
-import SignUp from './components/signup/SignUp';
-import Login from './components/login/Login';
+import Home from './components/Home';
+// import SignUp from './components/signup/SignUp';
+// import Login from './components/login/Login';
 // import logo from './logo.svg';
 // import './App.css';
 
@@ -17,10 +17,14 @@ class App extends Component {
     this.setState({user});
   }
 
+  onLoginSuccessful = (user) => {
+    this.setState({user});
+  }
+
   render() {
     return (
       <div>
-        <SignUp onSignUpSuccessful={this.onSignUpSuccessful} />
+        <Home onSignUpSuccessful={this.onSignUpSuccessful} onLoginSuccessful={this.onLoginSuccessful} />
         <p>{JSON.stringify(this.state.user)}</p>
       </div>
     );

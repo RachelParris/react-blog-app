@@ -5,8 +5,19 @@ const User = require('../models/users');
 
 
 // Get User
-router.get('/user', (req, res, next) => {
-  //
+router.post('/login', (req, res, next) => {
+  const { username, password } = req.body;
+
+  User.findOne({ username, password }, (err, user) => {
+    const { username, firstname, lastname } = user;
+
+    if (err) {
+      res.status(409).json({ err: err.message });
+      return;
+    }
+
+    res.status(200).json({ username, firstname, lastname });
+  });
 });
 
 // Create User
@@ -15,10 +26,11 @@ router.post('/signup', (req, res, next) => {
 
   user.save((err) => {
     if (err) {
-        res.status(409).json({ err: err.message});
+        res.status(409).json({ err: err.message });
         return;
     }
-    res.status(200).json({ msg: "User info successfully saved to database!" });
+
+    res.status(200).json({ msg: 'User info successfully saved to database!' });
   });
 
 });
