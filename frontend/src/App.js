@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
-// import SignUp from './components/signup/SignUp';
-// import Login from './components/login/Login';
+import SignUp from './components/signup/SignUp';
+import Login from './components/login/Login';
 // import logo from './logo.svg';
 // import './App.css';
 
@@ -22,11 +23,16 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.context.history);
     return (
-      <div>
-        <Home onSignUpSuccessful={this.onSignUpSuccessful} onLoginSuccessful={this.onLoginSuccessful} />
-        <p>{JSON.stringify(this.state.user)}</p>
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" render={() => <Home user={this.state.user}/> }/>
+          <Route path="/signup" render={() => <SignUp onSignUpSuccessful={this.onSignUpSuccessful} />} />
+          <Route path="/login" render={() => <Login onLoginSuccessful={this.onLoginSuccessful} />} />
+          {/* <Route component={NotFound} /> */}
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
